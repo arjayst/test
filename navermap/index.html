@@ -8,13 +8,21 @@
     </style>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=cqZh4KiTFXA6d14yK7_Y&submodules=geocoder"></script>
     <script>
-        function init(){
-            new naver.maps.Map(document.getElementById('map'),{
-                center: new naver.maps.LatLng(37.3595704, 127.105399),
-                zoom:15
+        function init(x,y){
+            posObj=new naver.maps.LatLng(x,y);
+            obj=new naver.maps.Map(document.getElementById('map'),{
+                center: posObj,
+                zoom:12
+            }); 
+   
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(x,y),
+                map: obj
             });            
-        }
+        };
         window.addEventListener('load',init);
+        init(37.3595704, 127.105399)
+        });
         
 //        window.onload=function(){
 //            
